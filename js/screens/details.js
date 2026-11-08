@@ -27,7 +27,7 @@
     var R = App.rules;
     var cfg = R.config();
     var draft = App.router.getDraft();
-    var opt = App.store.priceOption();
+    var opt = R.defaultBagOption();
     var dp = R.defaultDropPoint();
     var today = R.toYMD(new Date());
     // Values typed earlier in this booking win over Book again prefill.

@@ -59,6 +59,8 @@
   }
 
   function bagOption(id) { return find(D.bagOptions, id); }
+  // The bag everyone is offered (single price, no price test).
+  function defaultBagOption() { return D.bagOptions[0]; }
   function slot(id) { return find(D.slots, id); }
   function dropPoint(id) { return find(D.dropPoints, id); }
   function defaultDropPoint() { return D.dropPoints[0]; }
@@ -152,6 +154,7 @@
     addDays: addDays,
     isYMD: isYMD,
     bagOption: bagOption,
+    defaultBagOption: defaultBagOption,
     slot: slot,
     slots: function () { return D.slots.slice(); },
     dropPoint: dropPoint,

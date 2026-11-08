@@ -1,7 +1,7 @@
 // Seed data and config for the prototype. Data only, no functions.
 // Times are ISO strings in UTC; Milan is UTC+1 in November.
 window.MOCK_DATA = {
-  version: 1,
+  version: 2, // bump when seed data changes in a way old saved browser data can't handle
   config: {
     currency: "EUR",
     insurancePrice: 3,
@@ -14,9 +14,9 @@ window.MOCK_DATA = {
     specialRequestsMaxLength: 200,
     showDemoControls: false   // true shows team-only tools: the Demo panel on status pages and "Reset demo data" in the footer
   },
+  // One price for everyone. The €22 vs €29 price test was dropped on 2026-11-08.
   bagOptions: [
-    { id: "small", label: "Small bag", price: 22, limitKg: 3, sizeHint: "up to 3 kg" },
-    { id: "standard", label: "Standard bag", price: 29, limitKg: 5, sizeHint: "up to 5 kg, about 5 days of clothes (11 lb)" }
+    { id: "small", label: "Small bag", price: 22, limitKg: 3, sizeHint: "up to 3 kg" }
   ],
   dropPoints: [
     { id: "co99", name: "CO99", address: "Viale Corsica, 99, 20133 Milano MI" }
@@ -29,7 +29,7 @@ window.MOCK_DATA = {
     {
       code: "LM-4HQ7",
       createdAt: "2026-11-01T18:20:00.000Z",
-      bagOptionId: "standard",
+      bagOptionId: "small",
       dropPointId: "co99",
       slotDate: "2026-11-02",
       slotId: "morning",
@@ -41,9 +41,9 @@ window.MOCK_DATA = {
       insurance: true,
       disclaimerAccepted: false,
       overweightApproved: true,
-      weightKg: 4.2,
+      weightKg: 2.8,
       charges: [
-        { type: "bag", amount: 29, at: "2026-11-01T18:20:00.000Z" },
+        { type: "bag", amount: 22, at: "2026-11-01T18:20:00.000Z" },
         { type: "insurance", amount: 3, at: "2026-11-01T18:20:00.000Z" }
       ],
       status: "washing",
@@ -54,7 +54,7 @@ window.MOCK_DATA = {
       ],
       texts: [
         { at: "2026-11-01T18:20:00.000Z", status: "received", body: "Order LM-4HQ7 — Received. Drop your bag at CO99, Viale Corsica, 99, 20133 Milano MI, Mon 2 Nov, 08:00–10:00. Write LM-4HQ7 on the bag. Back by Tue 3 Nov, 02:00." },
-        { at: "2026-11-02T09:05:00.000Z", status: "picked_up", body: "Order LM-4HQ7 — Picked up. Your bag weighed 4.2 kg. No extra charge." },
+        { at: "2026-11-02T09:05:00.000Z", status: "picked_up", body: "Order LM-4HQ7 — Picked up. Your bag weighed 2.8 kg. No extra charge." },
         { at: "2026-11-02T10:30:00.000Z", status: "washing", body: "Order LM-4HQ7 — Washing. Your bag is at our partner laundry and is washed separately." }
       ]
     },

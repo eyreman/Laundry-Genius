@@ -27,7 +27,6 @@
   function seed() {
     state = {
       version: D.version,
-      priceOptionId: Math.random() < 0.5 ? "small" : "standard",
       orders: clone(D.orders),
       savedGuest: null
     };
@@ -68,7 +67,7 @@
     if (!input.overweightApproved) throw new Error("Approve the overweight charge.");
 
     var cfg = R.config();
-    var bagOptionId = state.priceOptionId;
+    var bagOptionId = R.defaultBagOption().id;
     var order = {
       code: R.generateCode(state.orders.map(function (o) { return o.code; })),
       createdAt: nowISO,
@@ -135,7 +134,6 @@
   App.store = {
     init: init,
     reset: reset,
-    priceOption: function () { return R.bagOption(state.priceOptionId); },
     getOrder: getOrder,
     hasOrder: function (code) { return !!findOrder(code); },
     savedGuest: function () { return state.savedGuest ? clone(state.savedGuest) : null; },

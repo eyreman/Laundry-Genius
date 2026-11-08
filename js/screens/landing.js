@@ -29,7 +29,7 @@
   function render(root) {
     var R = App.rules;
     var cfg = R.config();
-    var opt = App.store.priceOption();
+    var opt = R.defaultBagOption();
     var dp = R.defaultDropPoint();
     var saved = App.store.savedGuest();
     var street = shortAddress(dp.address);

@@ -44,9 +44,12 @@
 
   function notFound(root) {
     root.appendChild(el("div", { className: "screen" }, [
-      el("h1", { text: "Order not found" }),
-      el("p", { text: "Check the code written on your bag and try again." }),
-      el("a", { className: "btn btn-primary btn-block", text: "Home", attrs: { href: "#/" } })
+      el("div", { className: "top" }, [
+        el("p", { className: "eyebrow", text: "Hmm" }),
+        el("h2", { text: "Order not found" }),
+        el("p", { className: "lede", text: "Check the code written on your bag and try again." })
+      ]),
+      el("div", { className: "actions" }, [el("a", { className: "cta", text: "Back to home", attrs: { href: "#/" } })])
     ]));
   }
 

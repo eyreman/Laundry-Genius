@@ -5,6 +5,7 @@
 
   // "Advance to next status" on the status page. Asks for the weight before Picked up.
   function mountControl(container, order) {
+    if (!App.rules.config().showDemoControls) return;
     var S = App.statuses;
     var next = S.next(order.status);
     if (!next) return;
@@ -15,6 +16,7 @@
     if (next === "picked_up") {
       var bag = App.rules.bagOption(order.bagOptionId);
       var weight = el("input", {
+        className: "field",
         attrs: { id: "demo-weight", type: "number", step: "0.1", min: "0.1", max: "50", inputmode: "decimal", placeholder: "e.g. 4.2" }
       });
       children.push(
@@ -34,13 +36,13 @@
           el("label", { text: "Bag weight at pickup (kg). Limit for this bag: " + bag.limitKg + " kg", attrs: { for: "demo-weight" } }),
           el("div", { className: "row" }, [
             weight,
-            el("button", { className: "btn btn-demo", text: "Mark " + S.label(next), attrs: { type: "submit" } })
+            el("button", { className: "ghost", text: "Mark " + S.label(next), attrs: { type: "submit" } })
           ])
         ])
       );
     } else {
       children.push(el("button", {
-        className: "btn btn-demo btn-block",
+        className: "ghost block",
         text: "Advance to " + S.label(next),
         attrs: { type: "button" },
         on: {
@@ -61,6 +63,7 @@
 
   // "Reset demo data" in the footer. Asks for a second tap instead of a confirm() dialog.
   function mountFooter(container) {
+    if (!App.rules.config().showDemoControls) return;
     var armed = false;
     var btn = el("button", {
       className: "btn-link",

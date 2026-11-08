@@ -38,5 +38,12 @@
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
-  App.dom = { el: el, append: append, clear: clear };
+  // Static, trusted markup only (illustrations, icons). Never pass anything a guest typed.
+  function markup(str) {
+    var t = document.createElement("template");
+    t.innerHTML = str;
+    return t.content;
+  }
+
+  App.dom = { el: el, append: append, clear: clear, markup: markup };
 })();

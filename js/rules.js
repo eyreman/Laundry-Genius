@@ -153,6 +153,7 @@
     isYMD: isYMD,
     bagOption: bagOption,
     slot: slot,
+    slots: function () { return D.slots.slice(); },
     dropPoint: dropPoint,
     defaultDropPoint: defaultDropPoint,
     bookingTotal: bookingTotal,

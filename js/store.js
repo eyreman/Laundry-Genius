@@ -84,6 +84,7 @@
         noDryer: !!(input.careNotes && input.careNotes.noDryer),
         delicates: !!(input.careNotes && input.careNotes.delicates)
       },
+      specialRequests: String(input.specialRequests || "").trim().slice(0, cfg.specialRequestsMaxLength),
       insurance: !!input.insurance,
       disclaimerAccepted: !!input.disclaimerAccepted,
       overweightApproved: true,

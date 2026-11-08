@@ -10,7 +10,9 @@ window.MOCK_DATA = {
     returnWindowHours: 16,
     checkoutTime: "10:00",
     timeZone: "Europe/Rome",  // Milan; all times shown and computed in this zone
-    bookingDaysAhead: 6
+    bookingDaysAhead: 6,
+    specialRequestsMaxLength: 200,
+    showDemoControls: false   // true shows team-only tools: the Demo panel on status pages and "Reset demo data" in the footer
   },
   bagOptions: [
     { id: "small", label: "Small bag", price: 22, limitKg: 3, sizeHint: "up to 3 kg" },
@@ -35,6 +37,7 @@ window.MOCK_DATA = {
       guest: { name: "Maya Chen", phone: "+44 7700 900123" },
       checkoutDate: "2026-11-06",
       careNotes: { coldWash: true, noDryer: false, delicates: false },
+      specialRequests: "",
       insurance: true,
       disclaimerAccepted: false,
       overweightApproved: true,
@@ -66,6 +69,7 @@ window.MOCK_DATA = {
       guest: { name: "Jonas Weber", phone: "+49 151 2345 6789" },
       checkoutDate: "2026-11-04",
       careNotes: { coldWash: false, noDryer: false, delicates: true },
+      specialRequests: "The blue silk scarf is hand-wash only, please.",
       insurance: false,
       disclaimerAccepted: true,
       overweightApproved: true,

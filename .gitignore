@@ -1,0 +1,7 @@
+# Local reference files, not part of the website
+onedrive.htm
+index 2.html
+
+# Planning docs stay private (the repository is public for GitHub Pages)
+PRD.updated.md
+CLAUDE.md
